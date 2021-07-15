@@ -5,7 +5,20 @@
     <div class="pragmatic_header_button">
         <span>메뉴1</span>
         <span>메뉴2</span>
-        <span>메뉴3</span>
-        <span>메뉴4</span>
+        {% if not user.is_authenticated %}
+        <span>
+            <a href="{% url 'account:login' %}">로그인</a>
+        </span>
+        <span>
+            <a href="{% url 'account:create' %}">회원가입</a>
+        </span>
+        {% else %}
+        <span>
+            <a href="{% url 'account:detail' pk=user.pk %}">내정보</a>
+        </span>
+        <span>
+            <a href="{% url 'account:logout' %}">로그아웃</a>
+        </span>
+        {% endif %}
     </div>
 </div>
