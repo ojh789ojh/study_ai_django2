@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="m-5">
+    <div>
+        <h4>
+            Update
+        </h4>
+    </div>
+    <div class="mw-500 text-center m-auto">
+        <form action="{% url 'account:update' pk=user.pk %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="m-5">
+                <input type="submit" class="btn btn-dark rounded-pill px-5">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
