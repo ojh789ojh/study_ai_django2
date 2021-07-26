@@ -4,17 +4,19 @@
     <div class="text-center mw-500 m-auto">
         <div class="m-5">
             <h4>
-                {{ user.username }}
+                {{ target_user.username }}
             </h4>
         </div>
         <div>
-            {{ user.date_joined }}
+            {{ target_user.date_joined }}
+        </div>
+        {% if user == target_user %}
+        <div>
+            <a href="{% url 'account:update' pk=target_user.pk %}">update</a>
         </div>
         <div>
-            <a href="{% url 'account:update' pk=user.pk %}">update</a>
+            <a href="{% url 'account:delete' pk=target_user.pk %}">quit</a>
         </div>
-        <div>
-            <a href="{% url 'account:delete' pk=user.pk %}">quit</a>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}

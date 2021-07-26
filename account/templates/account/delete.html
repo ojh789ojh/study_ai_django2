@@ -8,7 +8,7 @@
         </h4>
     </div>
     <div class="mw-500 text-center m-auto">
-        <form action="{% url 'account:delete' pk=user.pk%}" method="post">
+        <form action="{% url 'account:delete' pk=target_user.pk%}" method="post">
             {% csrf_token %}
             <div class="m-5">
                 <input type="submit" class="btn btn-danger rounded-pill px-5">

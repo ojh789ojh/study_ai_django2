@@ -8,7 +8,7 @@
         </h4>
     </div>
     <div class="mw-500 text-center m-auto">
-        <form action="{% url 'account:update' pk=user.pk %}" method="post">
+        <form action="{% url 'account:update' pk=target_user.pk %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="m-5">
