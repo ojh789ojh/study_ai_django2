@@ -7,7 +7,8 @@
             <img class="profile_image m-4" src="{{ target_user.profile.image.url }}" alt="profile image">
             {% if target_user == user %}
             <h2 class="NNS">{{ target_user.profile.nickname }}
-                <a href="{% url 'profile:update' pk=target_user.profile.pk  %}">edit</a>
+                <a href="{% url 'profile:update' pk=target_user.profile.pk  %}"
+                class="material-icons round-button">edit</a>
             </h2>
             {% endif %}
             <h5>{{ target_user.profile.message }}</h5>
@@ -24,10 +25,10 @@
         </div>
         {% if user == target_user %}
         <div>
-            <a href="{% url 'account:update' pk=target_user.pk %}">update</a>
-        </div>
-        <div>
-            <a href="{% url 'account:delete' pk=target_user.pk %}">quit</a>
+            <a href="{% url 'account:update' pk=target_user.pk %}"
+            class="material-icons round-button mx-1">settings</a>
+            <a href="{% url 'account:delete' pk=target_user.pk %}"
+            class="material-icons round-button mx-1">close</a>
         </div>
         {% endif %}
     </div>
