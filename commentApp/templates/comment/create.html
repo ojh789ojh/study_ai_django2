@@ -1,0 +1,17 @@
+{% load bootstrap4 %}
+<div class="m-5">
+    <div>
+        <h4>
+            Sign Up
+        </h4>
+    </div>
+    <div class="mw-500 text-center m-auto">
+        <form action="{% url 'commentApp:create' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="m-5">
+                <input type="submit" class="btn btn-dark rounded-pill px-5">
+            </div>
+        </form>
+    </div>
+</div>
