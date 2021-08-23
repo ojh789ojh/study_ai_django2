@@ -22,6 +22,9 @@
         </span>
         {% else %}
         <span>
+            <a href="{% url 'subscribeApp:list' %}">구독</a>
+        </span>
+        <span>
             <a href="{% url 'account:detail' pk=user.pk %}">내정보</a>
         </span>
         <span>
