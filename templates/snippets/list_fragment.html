@@ -1,19 +1,10 @@
-{% extends 'base.html' %}
 {% load static %}
-
-{% block content %}
 <style>
     .container{
         padding: 0;
         margin: 0 auto;
     }
     .container div {
-      {#width: 280px;#}
-      {#background-color: antiquewhite;#}
-      {#display: flex;#}
-      {#justify-content: center;#}
-      {#align-items: center;#}
-      {#border-radius: 8px;#}
         width: 45%;
         max-width: 200px;
         display: flex;
@@ -39,21 +30,22 @@
                 <img src="{{ article.image.url }}" alt="">
             </a>
             <span class="NNS_B m-2">{{ article.title }}</span>
+
         </div>
 
     {% endfor %}
+
 </div>
 
 <script src="{% static 'js/magicgrid.js' %}"></script>
-{% include 'snippets/pagination.html' %}
-    <div class="text-center my-5">
-        <a href="{% url 'articleApp:create' %}"
-           class="btn btn-dark rounded-pill material-icons">
-            brush
-        </a>
-        <a href="{% url 'articleApp:create' %}"
-           class="btn btn-outline-dark rounded-pill px-5">
-            Create Article
-        </a>
-    </div>
-{% endblock %}
+ {% include 'snippets/pagination.html' %}
+<div class="text-center my-5">
+    <a href="{% url 'articleApp:create' %}"
+       class="btn btn-dark rounded-pill material-icons">
+        brush
+    </a>
+    <a href="{% url 'articleApp:create' %}"
+       class="btn btn-outline-dark rounded-pill px-5">
+        Create Article
+    </a>
+</div>

@@ -14,8 +14,6 @@
       {#justify-content: center;#}
       {#align-items: center;#}
       {#border-radius: 8px;#}
-        width: 45%;
-        max-width: 200px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -25,20 +23,22 @@
     }
 
     .container img{
-        width: 100%;
+        width: 7rem;
+        height: 7rem;
+        object-fit: cover;
         border-radius: 1rem;
     }
 
 </style>
 <!DOCTYPE html>
 <div class="container my-4">
-      {% for article in article_list %}
+      {% for project in project_list %}
 
         <div>
-            <a href="{% url 'articleApp:detail' pk=article.pk %}">
-                <img src="{{ article.image.url }}" alt="">
+            <a href="{% url 'projectApp:detail' pk=project.pk %}">
+                <img src="{{ project.image.url }}" alt="">
             </a>
-            <span class="NNS_B m-2">{{ article.title }}</span>
+            <span class="NNS_B m-2">{{ project.name | truncatechars:7  }}</span>
         </div>
 
     {% endfor %}
@@ -47,13 +47,13 @@
 <script src="{% static 'js/magicgrid.js' %}"></script>
 {% include 'snippets/pagination.html' %}
     <div class="text-center my-5">
-        <a href="{% url 'articleApp:create' %}"
-           class="btn btn-dark rounded-pill material-icons">
-            brush
-        </a>
-        <a href="{% url 'articleApp:create' %}"
+{#        <a href="{% url 'projectApp:create' %}"#}
+{#           class="btn btn-dark rounded-pill material-icons">#}
+{#            brush#}
+{#        </a>#}
+        <a href="{% url 'projectApp:create' %}"
            class="btn btn-outline-dark rounded-pill px-5">
-            Create Article
+            Create Project
         </a>
     </div>
 {% endblock %}

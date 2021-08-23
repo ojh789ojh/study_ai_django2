@@ -57,3 +57,17 @@
     text-align: left;
     font-size: 1.1rem;
 }
+
+.comment_box{
+    text-align: left;
+    border: solid aqua;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    html{
+        font-size: 13px;
+    }
+}

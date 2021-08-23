@@ -13,8 +13,8 @@ from articleapp.models import Article
 from commentApp.forms import CommentCreationForm
 
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+@method_decorator(login_required(login_url=reverse_lazy('account:login')), 'get')
+@method_decorator(login_required(login_url=reverse_lazy('account:login')), 'post')
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreationForm
