@@ -1,33 +1,37 @@
 <div>
     <div class="pragmatic_header_logo">
-        <h1>제에에에에목</h1>
+        <h1>
+            <a href="{% url 'home' %}">
+                제에에에에목
+            </a>
+        </h1>
     </div>
     <div class="pragmatic_header_button">
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'articleApp:list' %}">
                 그으으으으으을
             </a>
         </span>
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'projectApp:list' %}">
                 게시판
             </a>
         </span>
         {% if not user.is_authenticated %}
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'account:login' %}">로그인</a>
         </span>
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'account:create' %}">회원가입</a>
         </span>
         {% else %}
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'subscribeApp:list' %}">구독</a>
         </span>
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'account:detail' pk=user.pk %}">내정보</a>
         </span>
-        <span>
+        <span class='mx-2'>
             <a href="{% url 'account:logout' %}">로그아웃</a>
         </span>
         {% endif %}

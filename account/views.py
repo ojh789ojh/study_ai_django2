@@ -11,28 +11,12 @@ from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from account.decorator import account_ownership_required
 from account.form.form import AccountCreationForm
-from account.models import HelloWorld
-
-
-@login_required(login_url=reverse_lazy('account:login'))
-def hello_world(request):
-    if request.method == "POST":
-        temp = request.POST.get("input_text")
-
-        new_hello_world = HelloWorld()
-        new_hello_world.text = temp
-        new_hello_world.save()
-        return HttpResponseRedirect(reverse('account:hello_world'))
-    else:
-        hello_world_list = HelloWorld.objects.all()
-        return render(request, 'account/hello_world.html', context={'text': 'GET METHOD!',
-                                                                    'hello_world_list': hello_world_list})
 
 
 class AccountCreate(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('account:hello_world')
+    success_url = reverse_lazy('articleApp:list')
     template_name = 'account/create.html'
 
 
@@ -63,5 +47,5 @@ class AccountDelete(DeleteView):
     model = User
     context_object_name = 'target_user'
     template_name = 'account/delete.html'
-    success_url = reverse_lazy('account:hello_world')
+    success_url = reverse_lazy('articleApp:list')
 

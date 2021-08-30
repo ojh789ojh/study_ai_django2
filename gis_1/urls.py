@@ -18,7 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from articleapp.views import ArticleListView
+
 urlpatterns = [
+    path('', ArticleListView.as_view(), name='home'),
+
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('profile/', include('profileApp.urls')),
@@ -26,4 +30,5 @@ urlpatterns = [
     path('comments/', include('commentApp.urls')),
     path('projects/', include('projectApp.urls')),
     path('subscribe/', include('subscribeApp.urls')),
+    path('likes/', include('likeApp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
