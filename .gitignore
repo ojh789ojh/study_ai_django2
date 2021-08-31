@@ -85,3 +85,5 @@ media/
 
 staticfiles/
 ngrok.exe
+gis_1_gcp
+gis_1_gcp.pub
